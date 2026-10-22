@@ -1,1 +1,250 @@
-# dynadot-auctions
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dynadot No Reserve Auctions | Bid Now. Own It for Your Price</title>
+<meta name="description" content="Five .com domains, all no reserve, live on Dynadot Auction. Place your bid today.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:linear-gradient(160deg,#fff1e0 0%,#eef0ff 45%,#e2faf2 100%);
+  --surface:#ffffff; --ink:#16213a; --muted:#56637a; --line:#e3e8f1;
+  --bar:#16213a; --bar-ink:#ffffff; --tld:#8a96ad;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:linear-gradient(160deg,#1a1330 0%,#0e1626 50%,#0b2220 100%);
+    --surface:#18223c; --ink:#f0f4fb; --muted:#a3b1cb; --line:#2a3858;
+    --bar:#0a111f; --bar-ink:#ffffff; --tld:#7f8eac;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:linear-gradient(160deg,#1a1330 0%,#0e1626 50%,#0b2220 100%);
+  --surface:#18223c; --ink:#f0f4fb; --muted:#a3b1cb; --line:#2a3858;
+  --bar:#0a111f; --bar-ink:#ffffff; --tld:#7f8eac;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{
+  margin:0;min-height:100vh;background:var(--bg);background-attachment:fixed;color:var(--ink);
+  font-family:"Instrument Sans",system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  line-height:1.5;padding-bottom:env(safe-area-inset-bottom,0px);
+}
+h1,h3{font-family:"Bricolage Grotesque","Avenir Next",system-ui,sans-serif;margin:0;letter-spacing:-.02em}
+a{color:inherit}
+:focus-visible{outline:3px solid #ffb703;outline-offset:3px;border-radius:8px}
+.wrap{width:100%;max-width:1120px;margin:0 auto;padding:0 20px}
+
+/* header */
+header{position:sticky;top:0;z-index:20;background:var(--bar);color:var(--bar-ink);padding-top:env(safe-area-inset-top,0px);box-shadow:0 2px 14px rgba(0,0,0,.18)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0}
+h1{font-size:clamp(.98rem,4vw,1.45rem);font-weight:800;line-height:1.15}
+h1 em{font-style:normal;color:#ffc933;white-space:nowrap}
+.live{
+  flex:none;display:inline-flex;align-items:center;gap:8px;text-decoration:none;
+  background:#ef233c;color:#fff;font-weight:700;font-size:.95rem;
+  padding:9px 16px;border-radius:999px;min-height:40px;
+  box-shadow:0 0 0 0 rgba(239,35,60,.6);animation:ring 1.8s infinite;
+}
+.live i{width:9px;height:9px;border-radius:50%;background:#fff;animation:blink 1.2s infinite}
+.live:hover{background:#d90429}
+@keyframes ring{70%{box-shadow:0 0 0 12px rgba(239,35,60,0)}100%{box-shadow:0 0 0 0 rgba(239,35,60,0)}}
+@keyframes blink{50%{opacity:.25}}
+
+/* grid */
+main{padding:26px 0 48px}
+.grid{display:grid;gap:18px;grid-template-columns:1fr;margin:0;padding:0;list-style:none}
+@media (min-width:640px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1000px){.grid{grid-template-columns:repeat(3,1fr)}}
+
+.card{
+  --c1:#6d3df2;--c2:#b66dff;--tint:#f1eaff;
+  position:relative;background:var(--surface);border:1px solid var(--line);border-radius:18px;overflow:hidden;
+  display:flex;flex-direction:column;gap:14px;padding:22px 20px 20px;
+  box-shadow:0 6px 20px rgba(22,33,58,.08);transition:transform .2s,box-shadow .2s;
+}
+.card::before{content:"";position:absolute;inset:0 0 auto 0;height:5px;background:linear-gradient(90deg,var(--c1),var(--c2))}
+.card:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(22,33,58,.16)}
+
+.top{display:flex;align-items:center;gap:14px;min-width:0}
+.logo{
+  flex:none;width:60px;height:60px;border-radius:14px;background:var(--tint);
+  border:1px solid rgba(22,33,58,.08);display:grid;place-items:center;
+}
+.logo svg{width:44px;height:44px}
+.name{min-width:0}
+.card h3{font-size:clamp(1.15rem,3.4vw,1.4rem);font-weight:800;line-height:1.15;overflow-wrap:anywhere}
+.card h3 span{color:var(--tld);font-weight:600}
+.badge{
+  display:inline-block;margin-top:6px;font-size:.74rem;font-weight:700;letter-spacing:.01em;
+  color:#067a4f;background:#d9f7e8;padding:2px 9px;border-radius:999px;
+}
+@media (prefers-color-scheme: dark){.badge{color:#7df0b8;background:rgba(61,220,151,.16)}}
+.card p{margin:0;color:var(--muted);flex:1;font-size:.98rem}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;width:100%;
+  background:linear-gradient(135deg,var(--c1),var(--c2));color:#fff;text-decoration:none;
+  font-weight:700;font-size:1.02rem;min-height:50px;border-radius:12px;
+  text-shadow:0 1px 2px rgba(0,0,0,.25);transition:filter .2s,transform .15s;
+}
+.btn:hover{filter:brightness(1.1)}
+.btn:active{transform:scale(.98)}
+
+.c-zodiac{--c1:#6a2fe8;--c2:#c45bff;--tint:#f1eaff}
+.c-pancake{--c1:#ff7a00;--c2:#ffb000;--tint:#fff1da}
+.c-trek{--c1:#00a884;--c2:#34d399;--tint:#dcf8ee}
+.c-tattoo{--c1:#e0115f;--c2:#ff6b4a;--tint:#ffe4ea}
+.c-moon{--c1:#1d4ed8;--c2:#38bdf8;--tint:#e0efff}
+
+.note{text-align:center;color:var(--muted);font-size:.92rem;margin:28px auto 0;max-width:56ch}
+footer{padding:16px 0 28px;color:var(--muted);font-size:.9rem;text-align:center}
+footer a{color:inherit;font-weight:600}
+
+@media (max-width:380px){
+  .wrap{padding:0 14px}
+  .logo{width:52px;height:52px}.logo svg{width:38px;height:38px}
+  .live{padding:8px 12px;font-size:.88rem}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="bar">
+      <h1>Dynadot No Reserve Auctions <em>Bid Now. Own It for Your Price</em></h1>
+      <a class="live" href="https://www.dynadot.com/market/auction" target="_blank" rel="noopener"><i aria-hidden="true"></i>Live now</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <ul class="grid">
+
+      <li class="card c-zodiac">
+        <div class="top">
+          <div class="logo" aria-hidden="true">
+            <svg viewBox="0 0 64 64">
+              <g fill="#7c3aed">
+                <circle cx="32" cy="7" r="4"/><circle cx="49.7" cy="14.3" r="4"/><circle cx="57" cy="32" r="4"/><circle cx="49.7" cy="49.7" r="4"/>
+                <circle cx="32" cy="57" r="4"/><circle cx="14.3" cy="49.7" r="4"/><circle cx="7" cy="32" r="4"/><circle cx="14.3" cy="14.3" r="4"/>
+              </g>
+              <path d="M32 17l4.3 9.7 10.5 1-7.9 7 2.3 10.3L32 39.5l-9.2 5.5 2.3-10.3-7.9-7 10.5-1z" fill="#f5b50a"/>
+            </svg>
+          </div>
+          <div class="name">
+            <h3>Zodiacbracelet<span>.com</span></h3>
+            <span class="badge">No reserve</span>
+          </div>
+        </div>
+        <p>A ready-made brand for astrology jewelry and personalized gifts.</p>
+        <a class="btn" href="https://www.dynadot.com/market/auction/zodiacbracelet.com" target="_blank" rel="noopener" aria-label="Bid now on Zodiacbracelet.com">Bid now</a>
+      </li>
+
+      <li class="card c-pancake">
+        <div class="top">
+          <div class="logo" aria-hidden="true">
+            <svg viewBox="0 0 64 64">
+              <ellipse cx="32" cy="47" rx="22" ry="8" fill="#c97a1e"/>
+              <rect x="10" y="38" width="44" height="9" fill="#c97a1e"/>
+              <ellipse cx="32" cy="38" rx="22" ry="8" fill="#e9a23b"/>
+              <rect x="10" y="29" width="44" height="9" fill="#e9a23b"/>
+              <ellipse cx="32" cy="29" rx="22" ry="8" fill="#f6c25b"/>
+              <rect x="10" y="20" width="44" height="9" fill="#f6c25b"/>
+              <ellipse cx="32" cy="20" rx="22" ry="8" fill="#ffd97d"/>
+              <path d="M16 20c0-6 32-6 32 0 0 4-3 4-4 9 0 3-4 3-4 0 0-3-4-3-4 2s-4 5-4 1-4-4-4 0-6 3-6-1c0-4-6-5-6-11z" fill="#8a3b12"/>
+              <rect x="27" y="11" width="10" height="7" rx="1.5" fill="#fff3a8"/>
+            </svg>
+          </div>
+          <div class="name">
+            <h3>Yummypancakes<span>.com</span></h3>
+            <span class="badge">No reserve</span>
+          </div>
+        </div>
+        <p>The sweet spot for breakfast cafes, recipe blogs and food delivery.</p>
+        <a class="btn" href="https://www.dynadot.com/market/auction/yummypancakes.com" target="_blank" rel="noopener" aria-label="Bid now on Yummypancakes.com">Bid now</a>
+      </li>
+
+      <li class="card c-trek">
+        <div class="top">
+          <div class="logo" aria-hidden="true">
+            <svg viewBox="0 0 64 64">
+              <circle cx="46" cy="16" r="7" fill="#ffb703"/>
+              <path d="M4 54L24 20l12 20 8-12 16 26z" fill="#00a884"/>
+              <path d="M24 20l-6 10 6-3 4 5z" fill="#d7fff1"/>
+              <path d="M44 28l-5 8 5-2 4 3z" fill="#b8f5df"/>
+              <path d="M24 20V9" stroke="#16213a" stroke-width="2.5" stroke-linecap="round"/>
+              <path d="M24 9l9 3-9 3z" fill="#ef233c"/>
+            </svg>
+          </div>
+          <div class="name">
+            <h3>Sixtrek<span>.com</span></h3>
+            <span class="badge">No reserve</span>
+          </div>
+        </div>
+        <p>Short and adventurous, made for outdoor gear, tours and travel clubs.</p>
+        <a class="btn" href="https://www.dynadot.com/market/auction/sixtrek.com" target="_blank" rel="noopener" aria-label="Bid now on Sixtrek.com">Bid now</a>
+      </li>
+
+      <li class="card c-tattoo">
+        <div class="top">
+          <div class="logo" aria-hidden="true">
+            <svg viewBox="0 0 64 64" stroke-linejoin="round" stroke-linecap="round">
+              <path d="M32 54C8 38 8 18 21 15c6-1 10 3 11 7 1-4 5-8 11-7 13 3 13 23-11 39z" fill="#e0115f" stroke="#16213a" stroke-width="2.5"/>
+              <path d="M17 24c1-4 4-5 7-4" fill="none" stroke="#ff9db9" stroke-width="2.5"/>
+              <path d="M32 3l4 6v27h-8V9z" fill="#e7edf5" stroke="#16213a" stroke-width="2.5"/>
+              <path d="M32 6v30" stroke="#9fb0c7" stroke-width="2"/>
+              <rect x="22" y="36" width="20" height="5" rx="2.5" fill="#ffb703" stroke="#16213a" stroke-width="2.5"/>
+              <rect x="29.5" y="41" width="5" height="9" fill="#16213a"/>
+              <circle cx="32" cy="53" r="3.5" fill="#ffb703" stroke="#16213a" stroke-width="2.5"/>
+            </svg>
+          </div>
+          <div class="name">
+            <h3>Specialtattoo<span>.com</span></h3>
+            <span class="badge">No reserve</span>
+          </div>
+        </div>
+        <p>A clear, trusted name for tattoo studios, artists and booking platforms.</p>
+        <a class="btn" href="https://www.dynadot.com/market/auction/specialtattoo.com" target="_blank" rel="noopener" aria-label="Bid now on Specialtattoo.com">Bid now</a>
+      </li>
+
+      <li class="card c-moon">
+        <div class="top">
+          <div class="logo" aria-hidden="true">
+            <svg viewBox="0 0 64 64">
+              <path d="M42 4a19 19 0 1 0 17 28A15 15 0 0 1 42 4z" fill="#ffc933"/>
+              <circle cx="12" cy="12" r="2" fill="#38bdf8"/><circle cx="24" cy="6" r="1.6" fill="#38bdf8"/>
+              <path d="M6 58V40l20-15 20 15v18z" fill="#1d4ed8"/>
+              <path d="M2 41l24-18 24 18" fill="none" stroke="#16213a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              <rect x="19" y="44" width="14" height="14" rx="2" fill="#ffd966"/>
+              <path d="M26 44v14M19 51h14" stroke="#1d4ed8" stroke-width="1.8"/>
+              <rect x="38" y="44" width="6" height="14" fill="#0b2a7a"/>
+            </svg>
+          </div>
+          <div class="name">
+            <h3>Innmoon<span>.com</span></h3>
+            <span class="badge">No reserve</span>
+          </div>
+        </div>
+        <p>A calm, memorable brand for boutique hotels, B&amp;Bs and night stays.</p>
+        <a class="btn" href="https://www.dynadot.com/market/auction/innmoon.com" target="_blank" rel="noopener" aria-label="Bid now on Innmoon.com">Bid now</a>
+      </li>
+
+    </ul>
+    <p class="note">Bidding, payment and domain transfer are handled securely by Dynadot.</p>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">Auctions hosted by <a href="https://www.dynadot.com/market/auction" target="_blank" rel="noopener">Dynadot</a></div>
+</footer>
+
+</body>
+</html>
